@@ -1,2 +1,2 @@
-echo "------Running commitlint hook----------"
-exec < /dev/tty && npx cz --hook || true
+echo "------Running commitzen hook----------"
+exec < /dev/tty && npx czg --hook || true

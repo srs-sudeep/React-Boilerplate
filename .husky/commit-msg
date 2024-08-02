@@ -1,3 +1,2 @@
-#!/usr/bin/env sh
-echo "------Running commitzen-----------"
+echo "------Running commitlint hook-----------"
 npx --no -- commitlint --edit $1

@@ -1,2 +1,3 @@
+echo "------Running linters and prettier hook----------"
 bun lint:fix
 bun prettier:write
