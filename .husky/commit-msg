@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+echo "------Running commitzen-----------"
+npx --no -- commitlint --edit $1

@@ -1,0 +1,2 @@
+bun lint:fix
+bun prettier:write
