@@ -1,2 +1,0 @@
-echo "------Running commitlint hook-----------"
-npx --no -- commitlint --edit $1
