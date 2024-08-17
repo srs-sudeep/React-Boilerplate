@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@ui/*": ["./src/@ui/*"],
+      "@lodash/*": ["./src/@lodash/*"],
+      "@history/*": ["./src/@history/*"],
+      "@core/*": ["./src/@core/*"],
+      "app/*": ["./src/app/*"],
+      "main/*": ["./src/app/main/*"],
+      "config/*": ["./src/app/configs/*"],
+      "auth/*": ["./src/app/auth/*"]
+    }
+  }
+}
