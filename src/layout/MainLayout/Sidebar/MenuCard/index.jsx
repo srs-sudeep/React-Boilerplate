@@ -1,21 +1,23 @@
-import PropTypes from 'prop-types';
-import { memo } from 'react';
+import PropTypes from 'prop-types'
+import { memo } from 'react'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import Grid from '@mui/material/Grid'
+import LinearProgress, {
+  linearProgressClasses,
+} from '@mui/material/LinearProgress'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import ListItemText from '@mui/material/ListItemText'
+import Typography from '@mui/material/Typography'
 
 // assets
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined'
 
 // ==============================|| PROGRESS BAR WITH LABEL ||============================== //
 
@@ -30,7 +32,9 @@ function LinearProgressWithLabel({ value, ...others }) {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h6" color="inherit">{`${Math.round(value)}%`}</Typography>
+            <Typography
+              variant="h6"
+              color="inherit">{`${Math.round(value)}%`}</Typography>
           </Grid>
         </Grid>
       </Grid>
@@ -44,27 +48,27 @@ function LinearProgressWithLabel({ value, ...others }) {
             height: 10,
             borderRadius: 30,
             [`&.${linearProgressClasses.colorPrimary}`]: {
-              bgcolor: 'background.paper'
+              bgcolor: 'background.paper',
             },
             [`& .${linearProgressClasses.bar}`]: {
               borderRadius: 5,
-              bgcolor: 'primary.dark'
-            }
+              bgcolor: 'primary.dark',
+            },
           }}
         />
       </Grid>
     </Grid>
-  );
+  )
 }
 
 LinearProgressWithLabel.propTypes = {
-  value: PropTypes.number
-};
+  value: PropTypes.number,
+}
 
 // ==============================|| SIDEBAR - MENU CARD ||============================== //
 
 const MenuCard = () => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Card
@@ -81,10 +85,9 @@ const MenuCard = () => {
           bgcolor: 'primary.200',
           borderRadius: '50%',
           top: -105,
-          right: -96
-        }
-      }}
-    >
+          right: -96,
+        },
+      }}>
       <Box sx={{ p: 2 }}>
         <List disablePadding sx={{ m: 0 }}>
           <ListItem alignItems="flex-start" disableGutters disablePadding>
@@ -97,9 +100,8 @@ const MenuCard = () => {
                   color: 'primary.main',
                   border: 'none',
                   borderColor: 'primary.main',
-                  bgcolor: 'background.paper'
-                }}
-              >
+                  bgcolor: 'background.paper',
+                }}>
                 <TableChartOutlinedIcon fontSize="inherit" />
               </Avatar>
             </ListItemAvatar>
@@ -117,7 +119,7 @@ const MenuCard = () => {
         <LinearProgressWithLabel value={80} />
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default memo(MenuCard);
+export default memo(MenuCard)

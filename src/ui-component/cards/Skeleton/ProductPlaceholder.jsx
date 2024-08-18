@@ -1,11 +1,11 @@
 // material-ui
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
+import CardContent from '@mui/material/CardContent'
+import Grid from '@mui/material/Grid'
+import Skeleton from '@mui/material/Skeleton'
+import Stack from '@mui/material/Stack'
 
 // project import
-import MainCard from '../MainCard';
+import MainCard from '../MainCard'
 
 // ===========================|| SKELETON TOTAL GROWTH BAR CHART ||=========================== //
 
@@ -27,7 +27,10 @@ const ProductPlaceholder = () => (
           </Stack>
         </Grid>
         <Grid item xs={12}>
-          <Stack direction="row" justifyContent="space-between" alignItems="center">
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center">
             <Grid container spacing={1}>
               <Grid item>
                 <Skeleton variant="rectangular" height={20} width={40} />
@@ -42,6 +45,6 @@ const ProductPlaceholder = () => (
       </Grid>
     </CardContent>
   </MainCard>
-);
+)
 
-export default ProductPlaceholder;
+export default ProductPlaceholder

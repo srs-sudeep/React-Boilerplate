@@ -1,24 +1,22 @@
-import { RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom'
 
-import { ThemeProvider } from '@mui/material/styles';
-import { CssBaseline, StyledEngineProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles'
+import { CssBaseline, StyledEngineProvider } from '@mui/material'
 
 // routing
-import router from './routes';
+import router from './routes'
 
 // defaultTheme
-import { useSelector } from 'react-redux';
-import themes from './themes';
+import { useSelector } from 'react-redux'
+import themes from 'themes'
 
 // project imports
-import NavigationScroll from './layout/NavigationScroll';
-
-
+import NavigationScroll from 'layout/NavigationScroll'
 
 // ==============================|| APP ||============================== //
 
 const App = () => {
-  const customization = useSelector((state) => state.customization);
+  const customization = useSelector((state) => state.customization)
 
   return (
     <StyledEngineProvider injectFirst>
@@ -29,7 +27,7 @@ const App = () => {
         </NavigationScroll>
       </ThemeProvider>
     </StyledEngineProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

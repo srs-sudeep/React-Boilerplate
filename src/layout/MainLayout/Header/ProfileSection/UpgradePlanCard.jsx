@@ -1,14 +1,14 @@
 // material-ui
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Grid from '@mui/material/Grid'
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
 // project imports
-import AnimateButton from '../../../../ui-component/extended/AnimateButton';
+import AnimateButton from 'ui-component/extended/AnimateButton'
 
 // ==============================|| PROFILE MENU - UPGRADE PLAN CARD ||============================== //
 
@@ -18,8 +18,8 @@ const UpgradePlanCard = () => {
     position: 'absolute',
     width: 200,
     height: 200,
-    borderColor: 'warning.main'
-  };
+    borderColor: 'warning.main',
+  }
 
   return (
     <Card
@@ -33,33 +33,41 @@ const UpgradePlanCard = () => {
           borderRadius: '50%',
           top: '65px',
           right: '-150px',
-          ...cardSX
+          ...cardSX,
         },
         '&:before': {
           border: '3px solid ',
           borderRadius: '50%',
           top: '145px',
           right: '-70px',
-          ...cardSX
-        }
-      }}
-    >
+          ...cardSX,
+        },
+      }}>
       <CardContent>
         <Grid container direction="column" spacing={2}>
           <Grid item>
             <Typography variant="h4">Upgrade your plan</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="subtitle2" color={'grey.900'} sx={{ opacity: 0.6 }}>
+            <Typography
+              variant="subtitle2"
+              color={'grey.900'}
+              sx={{ opacity: 0.6 }}>
               70% discount for 1 years <br />
               subscriptions.
             </Typography>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <Link sx={{ textDecoration: 'none' }} href="https://links.codedthemes.com/hsqll" target="_blank">
+              <Link
+                sx={{ textDecoration: 'none' }}
+                href="https://links.codedthemes.com/hsqll"
+                target="_blank">
                 <AnimateButton>
-                  <Button variant="contained" color="warning" sx={{ boxShadow: 'none' }}>
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    sx={{ boxShadow: 'none' }}>
                     Go Premium
                   </Button>
                 </AnimateButton>
@@ -69,7 +77,7 @@ const UpgradePlanCard = () => {
         </Grid>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default UpgradePlanCard;
+export default UpgradePlanCard

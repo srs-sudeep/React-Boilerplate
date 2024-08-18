@@ -1,8 +1,8 @@
 // assets
-import { IconBrandChrome, IconHelp } from '@tabler/icons-react';
+import { IconBrandChrome, IconHelp } from '@tabler/icons-react'
 
 // constant
-const icons = { IconBrandChrome, IconHelp };
+const icons = { IconBrandChrome, IconHelp }
 
 // ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //
 
@@ -16,7 +16,7 @@ const other = {
       type: 'item',
       url: '/sample-page',
       icon: icons.IconBrandChrome,
-      breadcrumbs: false
+      breadcrumbs: false,
     },
     {
       id: 'documentation',
@@ -25,9 +25,9 @@ const other = {
       url: 'https://codedthemes.gitbook.io/berry/',
       icon: icons.IconHelp,
       external: true,
-      target: true
-    }
-  ]
-};
+      target: true,
+    },
+  ],
+}
 
-export default other;
+export default other

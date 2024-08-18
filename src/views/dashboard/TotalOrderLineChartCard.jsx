@@ -1,37 +1,37 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 
 // third-party
-import Chart from 'react-apexcharts';
+import Chart from 'react-apexcharts'
 
 // project imports
-import MainCard from '../../ui-component/cards/MainCard';
-import SkeletonTotalOrderCard from '../../ui-component/cards/Skeleton/EarningCard';
+import MainCard from 'ui-component/cards/MainCard'
+import SkeletonTotalOrderCard from 'ui-component/cards/Skeleton/EarningCard'
 
-import ChartDataMonth from './chart-data/total-order-month-line-chart';
-import ChartDataYear from './chart-data/total-order-year-line-chart';
+import ChartDataMonth from './chart-data/total-order-month-line-chart'
+import ChartDataYear from './chart-data/total-order-year-line-chart'
 
 // assets
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined'
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 
 // ==============================|| DASHBOARD - TOTAL ORDER LINE CHART CARD ||============================== //
 
 const TotalOrderLineChartCard = ({ isLoading }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const [timeValue, setTimeValue] = React.useState(false);
+  const [timeValue, setTimeValue] = React.useState(false)
   const handleChangeTime = (event, newValue) => {
-    setTimeValue(newValue);
-  };
+    setTimeValue(newValue)
+  }
 
   return (
     <>
@@ -48,7 +48,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
             position: 'relative',
             '&>div': {
               position: 'relative',
-              zIndex: 5
+              zIndex: 5,
             },
             '&:after': {
               content: '""',
@@ -58,7 +58,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
               background: theme.palette.primary[800],
               borderRadius: '50%',
               top: { xs: -105, sm: -85 },
-              right: { xs: -140, sm: -95 }
+              right: { xs: -140, sm: -95 },
             },
             '&:before': {
               content: '""',
@@ -69,10 +69,9 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
               borderRadius: '50%',
               top: { xs: -155, sm: -125 },
               right: { xs: -70, sm: -15 },
-              opacity: 0.5
-            }
-          }}
-        >
+              opacity: 0.5,
+            },
+          }}>
           <Box sx={{ p: 2.25 }}>
             <Grid container direction="column">
               <Grid item>
@@ -85,9 +84,8 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                         ...theme.typography.largeAvatar,
                         bgcolor: 'primary.800',
                         color: '#fff',
-                        mt: 1
-                      }}
-                    >
+                        mt: 1,
+                      }}>
                       <LocalMallOutlinedIcon fontSize="inherit" />
                     </Avatar>
                   </Grid>
@@ -97,8 +95,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                       variant={timeValue ? 'contained' : 'text'}
                       size="small"
                       sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, true)}
-                    >
+                      onClick={(e) => handleChangeTime(e, true)}>
                       Month
                     </Button>
                     <Button
@@ -106,8 +103,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                       variant={!timeValue ? 'contained' : 'text'}
                       size="small"
                       sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, false)}
-                    >
+                      onClick={(e) => handleChangeTime(e, false)}>
                       Year
                     </Button>
                   </Grid>
@@ -119,9 +115,27 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                     <Grid container alignItems="center">
                       <Grid item>
                         {timeValue ? (
-                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
+                          <Typography
+                            sx={{
+                              fontSize: '2.125rem',
+                              fontWeight: 500,
+                              mr: 1,
+                              mt: 1.75,
+                              mb: 0.75,
+                            }}>
+                            $108
+                          </Typography>
                         ) : (
-                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
+                          <Typography
+                            sx={{
+                              fontSize: '2.125rem',
+                              fontWeight: 500,
+                              mr: 1,
+                              mt: 1.75,
+                              mb: 0.75,
+                            }}>
+                            $961
+                          </Typography>
                         )}
                       </Grid>
                       <Grid item>
@@ -130,10 +144,12 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                             ...theme.typography.smallAvatar,
                             cursor: 'pointer',
                             bgcolor: 'primary.200',
-                            color: 'primary.dark'
-                          }}
-                        >
-                          <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
+                            color: 'primary.dark',
+                          }}>
+                          <ArrowDownwardIcon
+                            fontSize="inherit"
+                            sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }}
+                          />
                         </Avatar>
                       </Grid>
                       <Grid item xs={12}>
@@ -141,16 +157,19 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                           sx={{
                             fontSize: '1rem',
                             fontWeight: 500,
-                            color: 'primary.200'
-                          }}
-                        >
+                            color: 'primary.200',
+                          }}>
                           Total Order
                         </Typography>
                       </Grid>
                     </Grid>
                   </Grid>
                   <Grid item xs={6}>
-                    {timeValue ? <Chart {...ChartDataMonth} /> : <Chart {...ChartDataYear} />}
+                    {timeValue ? (
+                      <Chart {...ChartDataMonth} />
+                    ) : (
+                      <Chart {...ChartDataYear} />
+                    )}
                   </Grid>
                 </Grid>
               </Grid>
@@ -159,11 +178,11 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
         </MainCard>
       )}
     </>
-  );
-};
+  )
+}
 
 TotalOrderLineChartCard.propTypes = {
-  isLoading: PropTypes.bool
-};
+  isLoading: PropTypes.bool,
+}
 
-export default TotalOrderLineChartCard;
+export default TotalOrderLineChartCard

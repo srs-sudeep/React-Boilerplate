@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 // material-ui
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid'
 
 // project imports
-import EarningCard from './EarningCard';
-import PopularCard from './PopularCard';
-import TotalOrderLineChartCard from './TotalOrderLineChartCard';
-import TotalIncomeDarkCard from './TotalIncomeDarkCard';
-import TotalIncomeLightCard from './TotalIncomeLightCard';
-import TotalGrowthBarChart from './TotalGrowthBarChart';
+import EarningCard from './EarningCard'
+import PopularCard from './PopularCard'
+import TotalOrderLineChartCard from './TotalOrderLineChartCard'
+import TotalIncomeDarkCard from './TotalIncomeDarkCard'
+import TotalIncomeLightCard from './TotalIncomeLightCard'
+import TotalGrowthBarChart from './TotalGrowthBarChart'
 
-import { gridSpacing } from '../../store/constant';
+import { gridSpacing } from 'store/constant'
 
 // assets
-import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
+import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone'
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(false);
-  }, []);
+    setLoading(false)
+  }, [])
 
   return (
     <Grid container spacing={gridSpacing}>
@@ -46,7 +46,7 @@ const Dashboard = () => {
                     isLoading: isLoading,
                     total: 203,
                     label: 'Total Income',
-                    icon: <StorefrontTwoToneIcon fontSize="inherit" />
+                    icon: <StorefrontTwoToneIcon fontSize="inherit" />,
                   }}
                 />
               </Grid>
@@ -65,7 +65,7 @@ const Dashboard = () => {
         </Grid>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

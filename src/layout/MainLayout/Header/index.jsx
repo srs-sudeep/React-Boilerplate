@@ -1,24 +1,24 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
+import { useTheme } from '@mui/material/styles'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import ButtonBase from '@mui/material/ButtonBase'
 
 // project imports
-import LogoSection from '../LogoSection';
-import SearchSection from './SearchSection';
-import NotificationSection from './NotificationSection';
-import ProfileSection from './ProfileSection';
+import LogoSection from '../LogoSection'
+import SearchSection from './SearchSection'
+import NotificationSection from './NotificationSection'
+import ProfileSection from './ProfileSection'
 
 // assets
-import { IconMenu2 } from '@tabler/icons-react';
+import { IconMenu2 } from '@tabler/icons-react'
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
 const Header = ({ handleLeftDrawerToggle }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <>
@@ -28,11 +28,12 @@ const Header = ({ handleLeftDrawerToggle }) => {
           width: 228,
           display: 'flex',
           [theme.breakpoints.down('md')]: {
-            width: 'auto'
-          }
-        }}
-      >
-        <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
+            width: 'auto',
+          },
+        }}>
+        <Box
+          component="span"
+          sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
           <LogoSection />
         </Box>
         <ButtonBase sx={{ borderRadius: '8px', overflow: 'hidden' }}>
@@ -46,12 +47,11 @@ const Header = ({ handleLeftDrawerToggle }) => {
               color: theme.palette.secondary.dark,
               '&:hover': {
                 background: theme.palette.secondary.dark,
-                color: theme.palette.secondary.light
-              }
+                color: theme.palette.secondary.light,
+              },
             }}
             onClick={handleLeftDrawerToggle}
-            color="inherit"
-          >
+            color="inherit">
             <IconMenu2 stroke={1.5} size="1.3rem" />
           </Avatar>
         </ButtonBase>
@@ -66,11 +66,11 @@ const Header = ({ handleLeftDrawerToggle }) => {
       <NotificationSection />
       <ProfileSection />
     </>
-  );
-};
+  )
+}
 
 Header.propTypes = {
-  handleLeftDrawerToggle: PropTypes.func
-};
+  handleLeftDrawerToggle: PropTypes.func,
+}
 
-export default Header;
+export default Header

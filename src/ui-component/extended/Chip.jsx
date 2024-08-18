@@ -1,22 +1,22 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // material-ui
-import { alpha, useTheme } from '@mui/material/styles';
-import MuiChip from '@mui/material/Chip';
+import { alpha, useTheme } from '@mui/material/styles'
+import MuiChip from '@mui/material/Chip'
 
 // ==============================|| CHIP ||============================== //
 
 const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   let defaultSX = {
     color: 'primary.main',
     bgcolor: 'primary.light',
     ':hover': {
       color: 'primary.light',
-      bgcolor: 'primary.dark'
-    }
-  };
+      bgcolor: 'primary.dark',
+    },
+  }
 
   let outlineSX = {
     color: 'primary.main',
@@ -25,9 +25,9 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
     borderColor: 'primary.main',
     ':hover': {
       color: 'primary.light',
-      bgcolor: 'primary.dark'
-    }
-  };
+      bgcolor: 'primary.dark',
+    },
+  }
 
   switch (chipcolor) {
     case 'secondary':
@@ -39,18 +39,18 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
             borderColor: 'secondary.main',
             ':hover': {
               color: 'secondary.main',
-              bgcolor: 'secondary.light'
-            }
+              bgcolor: 'secondary.light',
+            },
           })
         : (defaultSX = {
             color: 'secondary.main',
             bgcolor: 'secondary.light',
             ':hover': {
               color: 'secondary.light',
-              bgcolor: 'secondary.main'
-            }
-          });
-      break;
+              bgcolor: 'secondary.main',
+            },
+          })
+      break
     case 'success':
       variant === 'outlined'
         ? (outlineSX = {
@@ -60,18 +60,18 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
             borderColor: 'success.dark',
             ':hover': {
               color: 'success.dark',
-              bgcolor: alpha(theme.palette.success.light, 0.6)
-            }
+              bgcolor: alpha(theme.palette.success.light, 0.6),
+            },
           })
         : (defaultSX = {
             color: 'success.dark',
             bgcolor: alpha(theme.palette.success.light, 0.6),
             ':hover': {
               color: 'success.light',
-              bgcolor: 'success.dark'
-            }
-          });
-      break;
+              bgcolor: 'success.dark',
+            },
+          })
+      break
     case 'error':
       variant === 'outlined'
         ? (outlineSX = {
@@ -81,18 +81,18 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
             borderColor: 'error.main',
             ':hover': {
               color: 'error.dark',
-              bgcolor: 'error.light'
-            }
+              bgcolor: 'error.light',
+            },
           })
         : (defaultSX = {
             color: 'error.dark',
             bgcolor: alpha(theme.palette.error.light, 0.6),
             ':hover': {
               color: 'error.light',
-              bgcolor: 'error.dark'
-            }
-          });
-      break;
+              bgcolor: 'error.dark',
+            },
+          })
+      break
     case 'orange':
       variant === 'outlined'
         ? (outlineSX = {
@@ -102,18 +102,18 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
             borderColor: 'orange.main',
             ':hover': {
               color: 'orange.dark',
-              bgcolor: 'orange.light'
-            }
+              bgcolor: 'orange.light',
+            },
           })
         : (defaultSX = {
             color: 'orange.dark',
             bgcolor: 'orange.light',
             ':hover': {
               color: 'orange.light',
-              bgcolor: 'orange.dark'
-            }
-          });
-      break;
+              bgcolor: 'orange.dark',
+            },
+          })
+      break
     case 'warning':
       variant === 'outlined'
         ? (outlineSX = {
@@ -123,18 +123,18 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
             borderColor: 'warning.dark',
             ':hover': {
               color: 'warning.dark',
-              bgcolor: 'warning.light'
-            }
+              bgcolor: 'warning.light',
+            },
           })
         : (defaultSX = {
             color: 'warning.dark',
             bgcolor: 'warning.light',
             ':hover': {
               color: 'warning.light',
-              bgcolor: 'warning.dark'
-            }
-          });
-      break;
+              bgcolor: 'warning.dark',
+            },
+          })
+      break
     default:
   }
 
@@ -147,32 +147,32 @@ const Chip = ({ chipcolor, disabled, sx = {}, variant, ...others }) => {
           borderColor: 'grey.500',
           ':hover': {
             color: 'grey.500',
-            bgcolor: 'transparent'
-          }
+            bgcolor: 'transparent',
+          },
         })
       : (defaultSX = {
           color: 'grey.500',
           bgcolor: 'grey.50',
           ':hover': {
             color: 'grey.500',
-            bgcolor: 'grey.50'
-          }
-        });
+            bgcolor: 'grey.50',
+          },
+        })
   }
 
-  let SX = defaultSX;
+  let SX = defaultSX
   if (variant === 'outlined') {
-    SX = outlineSX;
+    SX = outlineSX
   }
-  SX = { ...SX, ...sx };
-  return <MuiChip {...others} sx={SX} />;
-};
+  SX = { ...SX, ...sx }
+  return <MuiChip {...others} sx={SX} />
+}
 
 Chip.propTypes = {
   sx: PropTypes.object,
   chipcolor: PropTypes.string,
   variant: PropTypes.string,
-  disabled: PropTypes.bool
-};
+  disabled: PropTypes.bool,
+}
 
-export default Chip;
+export default Chip

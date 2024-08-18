@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 
 // ==============================|| NAVIGATION SCROLL TO TOP ||============================== //
 
@@ -8,15 +8,15 @@ const NavigationScroll = ({ children }) => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
-    });
-  }, []);
+      behavior: 'smooth',
+    })
+  }, [])
 
-  return children || null;
-};
+  return children || null
+}
 
 NavigationScroll.propTypes = {
-  children: PropTypes.node
-};
+  children: PropTypes.node,
+}
 
-export default NavigationScroll;
+export default NavigationScroll

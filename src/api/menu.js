@@ -1,36 +1,40 @@
-import useSWR, { mutate } from 'swr';
-import { useMemo } from 'react';
+import useSWR, { mutate } from 'swr'
+import { useMemo } from 'react'
 
 const initialState = {
   openedItem: 'dashboard',
   openedComponent: 'buttons',
   openedHorizontalItem: null,
   isDashboardDrawerOpened: false,
-  isComponentDrawerOpened: true
-};
+  isComponentDrawerOpened: true,
+}
 
 export const endpoints = {
   key: 'api/menu',
   master: 'master',
-  dashboard: '/dashboard' // server URL
-};
+  dashboard: '/dashboard', // server URL
+}
 
 export function useGetMenuMaster() {
-  const { data, isLoading } = useSWR(endpoints.key + endpoints.master, () => initialState, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false
-  });
+  const { data, isLoading } = useSWR(
+    endpoints.key + endpoints.master,
+    () => initialState,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    },
+  )
 
   const memoizedValue = useMemo(
     () => ({
       menuMaster: data,
-      menuMasterLoading: isLoading
+      menuMasterLoading: isLoading,
     }),
-    [data, isLoading]
-  );
+    [data, isLoading],
+  )
 
-  return memoizedValue;
+  return memoizedValue
 }
 
 export function handlerDrawerOpen(isDashboardDrawerOpened) {
@@ -39,10 +43,10 @@ export function handlerDrawerOpen(isDashboardDrawerOpened) {
   mutate(
     endpoints.key + endpoints.master,
     (currentMenuMaster) => {
-      return { ...currentMenuMaster, isDashboardDrawerOpened };
+      return { ...currentMenuMaster, isDashboardDrawerOpened }
     },
-    false
-  );
+    false,
+  )
 }
 
 export function handlerActiveItem(openedItem) {
@@ -51,8 +55,8 @@ export function handlerActiveItem(openedItem) {
   mutate(
     endpoints.key + endpoints.master,
     (currentMenuMaster) => {
-      return { ...currentMenuMaster, openedItem };
+      return { ...currentMenuMaster, openedItem }
     },
-    false
-  );
+    false,
+  )
 }

@@ -39,6 +39,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
+      'assets': '/src/assets',
+      'ui-component':'/src/ui-component',
+      'layout': '/src/layout',
+      'menu-items': '/src/menu-items',
+      'store': '/src/store',
+      'themes': '/src/themes',
+      'utils': '/src/utils',
+      'views': '/src/views',
       '@ui': '/src/@ui',
       '@core': '/src/@core',
       '@history': '/src/@history',

@@ -2,6 +2,15 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
+      "ui-component":["./src/ui-component"],
+      "assets":["./src/assets"],
+      "layout": ["./src/layout"],
+      "menu-items": ["./src/nume-items"],
+      "store": ["./src/store"],
+      "themes": ["./src/themes"],
+      "utils": ["./src/utils"],
+      "components": ["./src/components"],
+      "views": ["./src/views"],
       "@ui/*": ["./src/@ui/*"],
       "@lodash/*": ["./src/@lodash/*"],
       "@history/*": ["./src/@history/*"],

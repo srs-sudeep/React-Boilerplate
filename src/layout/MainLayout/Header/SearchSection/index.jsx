@@ -1,27 +1,31 @@
-import PropTypes from 'prop-types';
-import { useState, forwardRef } from 'react';
+import PropTypes from 'prop-types'
+import { useState, forwardRef } from 'react'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import Popper from '@mui/material/Popper';
+import { useTheme } from '@mui/material/styles'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import Grid from '@mui/material/Grid'
+import InputAdornment from '@mui/material/InputAdornment'
+import OutlinedInput from '@mui/material/OutlinedInput'
+import Popper from '@mui/material/Popper'
 
 // third-party
-import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
+import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state'
 
 // project imports
-import Transitions from '../../../../ui-component/extended/Transitions';
+import Transitions from 'ui-component/extended/Transitions'
 
 // assets
-import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons-react';
+import {
+  IconAdjustmentsHorizontal,
+  IconSearch,
+  IconX,
+} from '@tabler/icons-react'
 
 const HeaderAvatar = forwardRef(({ children, ...others }, ref) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Avatar
@@ -34,24 +38,23 @@ const HeaderAvatar = forwardRef(({ children, ...others }, ref) => {
         color: 'secondary.dark',
         '&:hover': {
           bgcolor: 'secondary.dark',
-          color: 'secondary.light'
-        }
+          color: 'secondary.light',
+        },
       }}
-      {...others}
-    >
+      {...others}>
       {children}
     </Avatar>
-  );
-});
+  )
+})
 
 HeaderAvatar.propTypes = {
-  children: PropTypes.node
-};
+  children: PropTypes.node,
+}
 
 // ==============================|| SEARCH INPUT - MOBILE||============================== //
 
 const MobileSearch = ({ value, setValue, popupState }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <OutlinedInput
@@ -79,33 +82,35 @@ const MobileSearch = ({ value, setValue, popupState }) => {
                 color: 'orange.dark',
                 '&:hover': {
                   bgcolor: 'orange.dark',
-                  color: 'orange.light'
-                }
+                  color: 'orange.light',
+                },
               }}
-              {...bindToggle(popupState)}
-            >
+              {...bindToggle(popupState)}>
               <IconX stroke={1.5} size="20px" />
             </Avatar>
           </Box>
         </InputAdornment>
       }
       aria-describedby="search-helper-text"
-      inputProps={{ 'aria-label': 'weight', sx: { bgcolor: 'transparent', pl: 0.5 } }}
+      inputProps={{
+        'aria-label': 'weight',
+        sx: { bgcolor: 'transparent', pl: 0.5 },
+      }}
       sx={{ width: '100%', ml: 0.5, px: 2, bgcolor: 'background.paper' }}
     />
-  );
-};
+  )
+}
 
 MobileSearch.propTypes = {
   value: PropTypes.string,
   setValue: PropTypes.func,
-  popupState: PopupState
-};
+  popupState: PopupState,
+}
 
 // ==============================|| SEARCH INPUT ||============================== //
 
 const SearchSection = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('')
 
   return (
     <>
@@ -121,16 +126,35 @@ const SearchSection = () => {
               <Popper
                 {...bindPopper(popupState)}
                 transition
-                sx={{ zIndex: 1100, width: '99%', top: '-55px !important', px: { xs: 1.25, sm: 1.5 } }}
-              >
+                sx={{
+                  zIndex: 1100,
+                  width: '99%',
+                  top: '-55px !important',
+                  px: { xs: 1.25, sm: 1.5 },
+                }}>
                 {({ TransitionProps }) => (
                   <>
-                    <Transitions type="zoom" {...TransitionProps} sx={{ transformOrigin: 'center left' }}>
-                      <Card sx={{ bgcolor: 'background.default', border: 0, boxShadow: 'none' }}>
+                    <Transitions
+                      type="zoom"
+                      {...TransitionProps}
+                      sx={{ transformOrigin: 'center left' }}>
+                      <Card
+                        sx={{
+                          bgcolor: 'background.default',
+                          border: 0,
+                          boxShadow: 'none',
+                        }}>
                         <Box sx={{ p: 2 }}>
-                          <Grid container alignItems="center" justifyContent="space-between">
+                          <Grid
+                            container
+                            alignItems="center"
+                            justifyContent="space-between">
                             <Grid item xs>
-                              <MobileSearch value={value} setValue={setValue} popupState={popupState} />
+                              <MobileSearch
+                                value={value}
+                                setValue={setValue}
+                                popupState={popupState}
+                              />
                             </Grid>
                           </Grid>
                         </Box>
@@ -162,12 +186,15 @@ const SearchSection = () => {
             </InputAdornment>
           }
           aria-describedby="search-helper-text"
-          inputProps={{ 'aria-label': 'weight', sx: { bgcolor: 'transparent', pl: 0.5 } }}
+          inputProps={{
+            'aria-label': 'weight',
+            sx: { bgcolor: 'transparent', pl: 0.5 },
+          }}
           sx={{ width: { md: 250, lg: 434 }, ml: 2, px: 2 }}
         />
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default SearchSection;
+export default SearchSection

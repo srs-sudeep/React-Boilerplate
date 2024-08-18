@@ -1,5 +1,5 @@
 // material-ui
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles'
 
 // project imports
 
@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 
 const AuthWrapper1 = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.grey[100],
-  minHeight: '100vh'
-}));
+  minHeight: '100vh',
+}))
 
-export default AuthWrapper1;
+export default AuthWrapper1
