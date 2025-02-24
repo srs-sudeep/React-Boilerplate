@@ -8,37 +8,6 @@ const AdminDashboard = lazyLoad(
   () => import('views/pages/superAdmin/AdminDashboard'),
 )
 const Analytics = lazyLoad(() => import('views/pages/superAdmin/Analytics'))
-// Student routing
-const StudentsList = lazyLoad(
-  () => import('views/pages/superAdmin/StudentsList'),
-)
-const RegisterStudentPage = lazyLoad(
-  () => import('views/pages/superAdmin/RegisterStudentPage'),
-)
-
-//Professor routing
-const ProfessorList = lazyLoad(
-  () => import('views/pages/superAdmin/ProfessorList'),
-)
-const RegisterProfessorPage = lazyLoad(
-  () => import('views/pages/superAdmin/RegisterProfessorPage'),
-)
-const RegisterCoursePage = lazyLoad(
-  () => import('views/pages/superAdmin/RegisterCoursePage'),
-)
-
-//Staff List
-const StaffList = lazyLoad(() => import('views/pages/superAdmin/StaffList'))
-const RegisterStaffPage = lazyLoad(
-  () => import('views/pages/superAdmin/RegisterStaffPage'),
-)
-
-//Vendor Routing
-const VendorList = lazyLoad(() => import('views/pages/superAdmin/VendorList'))
-const RegisterVendorPage = lazyLoad(
-  () => import('views/pages/superAdmin/RegisterVendorPage'),
-)
-
 const Profile = lazyLoad(() => import('views/pages/superAdmin/Profile'))
 import { Navigate } from 'react-router-dom'
 
@@ -61,62 +30,7 @@ const SuperAdminRoutes = [
         path: 'analytics',
         element: <Analytics />,
       },
-      {
-        path: 'student',
-        children: [
-          {
-            path: 'list',
-            element: <StudentsList />,
-          },
-          {
-            path: 'register',
-            element: <RegisterStudentPage />,
-          },
-        ],
-      },
-      {
-        path: 'professor',
-        children: [
-          {
-            path: 'list',
-            element: <ProfessorList />,
-          },
-          {
-            path: 'register',
-            element: <RegisterProfessorPage />,
-          },
-          {
-            path: 'register-course',
-            element: <RegisterCoursePage />,
-          },
-        ],
-      },
-      {
-        path: 'staff',
-        children: [
-          {
-            path: 'list',
-            element: <StaffList />,
-          },
-          {
-            path: 'register',
-            element: <RegisterStaffPage />,
-          },
-        ],
-      },
-      {
-        path: 'vendor',
-        children: [
-          {
-            path: 'list',
-            element: <VendorList />,
-          },
-          {
-            path: 'register',
-            element: <RegisterVendorPage />,
-          },
-        ],
-      },
+
       {
         path: 'profile',
         element: <Profile />,
