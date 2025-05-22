@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { forwardRef, useEffect } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -7,6 +7,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTheme } from '@mui/material/styles'
 import Avatar from '@mui/material/Avatar'
 import Chip from '@mui/material/Chip'
+import Badge from '@mui/material/Badge'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
@@ -28,9 +29,30 @@ const NavItem = ({ item, level }) => {
   const customization = useSelector((state) => state.customization)
   const matchesSM = useMediaQuery(theme.breakpoints.down('lg'))
 
+  const [activeRequests, setActiveRequests] = useState(false)
+
+  // Fetch active requests from localStorage
+  useEffect(() => {
+    const fetchRequests = () => {
+      const storedRequests = localStorage.getItem('request')
+      setActiveRequests(storedRequests === 'true')
+    }
+    fetchRequests()
+    const intervalId = setInterval(() => {
+      fetchRequests()
+    }, 1000)
+    return () => clearInterval(intervalId)
+  }, [])
+
   const Icon = item.icon
   const itemIcon = item?.icon ? (
-    <Icon stroke={1.5} size="1.3rem" />
+    <Badge
+      color="error"
+      variant="dot"
+      invisible={!(item.title === 'Requests' && activeRequests)} // Show dot only if activeRequests is true
+    >
+      <Icon stroke={1.5} size="1.3rem" />
+    </Badge>
   ) : (
     <FiberManualRecordIcon
       sx={{
@@ -54,7 +76,7 @@ const NavItem = ({ item, level }) => {
     )),
   }
   if (item?.external) {
-    listItemProps = { component: 'a', href: item.url, target: itemTarget }
+    listItemProps = { component: 'a', href: item.url, target: {itemTarget} }
   }
 
   const itemHandler = (id) => {
@@ -131,6 +153,7 @@ const NavItem = ({ item, level }) => {
 NavItem.propTypes = {
   item: PropTypes.object,
   level: PropTypes.number,
+  activeRequests: PropTypes.bool, // Prop for active requests
 }
 
 export default NavItem

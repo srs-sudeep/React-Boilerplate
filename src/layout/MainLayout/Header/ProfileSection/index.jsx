@@ -160,7 +160,7 @@ const ProfileSection = () => {
                         sx={{
                           borderRadius: `${customization.borderRadius}px`,
                         }}
-                        onClick={() => navigate('/profile')}>
+                        onClick={() => navigate('profile')}>
                         <ListItemIcon>
                           <IconUser stroke={1.5} size="1.3rem" />
                         </ListItemIcon>

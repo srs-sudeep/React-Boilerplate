@@ -24,17 +24,17 @@ function LinearProgressWithLabel({ value, ...others }) {
         <Grid container justifyContent="space-between">
           <Grid item>
             <Typography variant="h6" sx={{ color: 'primary.800' }}>
-              Recogx Init
+              SLOK TULSYAN
             </Typography>
           </Grid>
         </Grid>
       </Grid>
       <Grid item>
         <Typography variant="h6" sx={{ color: 'grey' }}>
-          Phone Number - +91 63724322280
+          Phone Number - +91 9931085103
         </Typography>
         <Typography variant="h6" sx={{ color: 'grey' }}>
-          Email - recogx.official@gmail.com
+          Email - sloktulsyan@gmail.com
         </Typography>
       </Grid>
     </Grid>
@@ -72,31 +72,19 @@ const MenuCard = () => {
         <List disablePadding sx={{ m: 0 }}>
           <ListItem alignItems="flex-start" disableGutters disablePadding>
             <ListItemAvatar sx={{ mt: 0 }}>
-              <Avatar
-                variant="rounded"
-                sx={{
-                  ...theme.typography.commonAvatar,
-                  ...theme.typography.largeAvatar,
-                  color: 'primary.main',
-                  border: 'none',
-                  borderColor: 'primary.main',
-                  bgcolor: 'background.paper',
-                }}>
-                <DirectionsCarIcon fontSize="inherit" />
-              </Avatar>
+              <img src="/logo.png" alt="ज्ञान वाटिका" height={50} width={50} />
             </ListItemAvatar>
             <ListItemText
               sx={{ mt: 0 }}
               primary={
                 <Typography variant="subtitle1" sx={{ color: 'primary.800' }}>
-                  Seamless: Smart Card-Based Seamless Transaction and Activity
-                  System.
+                  <strong>ज्ञान वाटिका</strong> <br /> GOALS Library
                 </Typography>
               }
               secondary={
                 <Typography variant="caption" sx={{ fontSize: 8 }}>
                   {' '}
-                  For Educational Hubs
+                  For IIT Bhilai
                 </Typography>
               }
             />

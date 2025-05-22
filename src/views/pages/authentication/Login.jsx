@@ -12,7 +12,6 @@ import AuthWrapper1 from '../AuthWrapper1'
 import AuthCardWrapper from '../AuthCardWrapper'
 import AuthLogin from './auth-forms/AuthLogin'
 import Logo from 'ui-component/Logo'
-import AuthFooter from 'ui-component/cards/AuthFooter'
 
 // ================================|| AUTH3 - LOGIN ||================================ //
 
@@ -25,7 +24,7 @@ const Login = () => {
         container
         direction="column"
         justifyContent="flex-end"
-        sx={{ minHeight: '100vh' }}>
+        sx={{ minHeight: '100vh', backgroundImage: 'url(/background.webp)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <Grid item xs={12}>
           <Grid
             container
@@ -59,7 +58,7 @@ const Login = () => {
                             color="secondary.main"
                             gutterBottom
                             variant={downMD ? 'h3' : 'h2'}>
-                            Hi, Welcome to Seamless
+                            Hi, Welcome to ज्ञान वाटिका
                           </Typography>
                           <Typography
                             variant="caption"
@@ -77,13 +76,24 @@ const Login = () => {
                   <Grid item xs={12}>
                     <Divider />
                   </Grid>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    sx={{ mt: 2 }}>
+                    Don't have an account?{' '}
+                    <Link
+                      to="/signup"
+                      style={{
+                        color: '#1976d2', // A more visible blue color, or choose one from the theme
+                        textDecoration: 'underline', // Ensures underline styling
+                      }}>
+                      Sign up
+                    </Link>
+                  </Typography>
                 </Grid>
               </AuthCardWrapper>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} sx={{ m: 3, mt: 1 }}>
-          <AuthFooter />
         </Grid>
       </Grid>
     </AuthWrapper1>

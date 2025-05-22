@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material/styles'
  * import logo from 'assets/images/logo.svg';
  *
  */
-import logo from '/logo.svg'
+import logo from '/logo.png'
 // ==============================|| LOGO SVG ||============================== //
 
 const Logo = () => {
@@ -21,7 +21,13 @@ const Logo = () => {
      * <img src={logo} alt="Berry" width="100" />
      *
      */
-    <img src={logo} alt="Seamless" width="250" height="100" />
+    <div className="flex items-center justify-center gap-2">
+      <img src={logo} alt="ज्ञान वाटिका" width="50" height="50" />
+      <div>
+      <h1 className='text-2xl font-bold'>ज्ञान वाटिका</h1>
+      <p className='text-sm'>GOALS Library</p>
+      </div>
+    </div>
   )
 }
 

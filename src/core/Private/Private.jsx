@@ -13,35 +13,24 @@ const useAuthValidation = () => {
         const person = user.role
         if (
           person === 'student' &&
-          (location.pathname.startsWith('/superadmin') ||
-            location.pathname.startsWith('/professor') ||
-            location.pathname.startsWith('/staff'))
+          (location.pathname.startsWith('/admin') ||
+            location.pathname.startsWith('/librarian'))
         ) {
           window.location.pathname = '/student'
         }
         if (
-          person === 'staff' &&
-          (location.pathname.startsWith('/superadmin') ||
-            location.pathname.startsWith('/professor') ||
+          person === 'librarian' &&
+          (location.pathname.startsWith('/admin') ||
             location.pathname.startsWith('/student'))
         ) {
-          window.location.pathname = '/staff'
+          window.location.pathname = '/librarian'
         }
         if (
-          person === 'professor' &&
-          (location.pathname.startsWith('/superadmin') ||
-            location.pathname.startsWith('/staff') ||
+          person === 'admin' &&
+          (location.pathname.startsWith('/librarian') ||
             location.pathname.startsWith('/student'))
         ) {
-          window.location.pathname = '/professor'
-        }
-        if (
-          person === 'superadmin' &&
-          (location.pathname.startsWith('/professor') ||
-            location.pathname.startsWith('/staff') ||
-            location.pathname.startsWith('/student'))
-        ) {
-          window.location.pathname = '/superadmin'
+          window.location.pathname = '/admin'
         }
       } catch (error) {
         console.log('errorr aa gayisss')
@@ -71,7 +60,7 @@ const useAuthValidation = () => {
       }
     }
     if (location.pathname === '/') location.pathname = '/login'
-    if (location.pathname !== '/login') validation()
+    if (location.pathname !== '/login' && location.pathname !== '/signup') validation()
   }, [navigate, location.pathname, location])
 }
 

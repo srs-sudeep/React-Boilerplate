@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 
 // material-ui
 import ButtonBase from '@mui/material/ButtonBase'
@@ -7,17 +6,17 @@ import ButtonBase from '@mui/material/ButtonBase'
 // project imports
 import config from '../../../config'
 import Logo from 'ui-component/Logo'
-import { MENU_OPEN } from 'store/actions'
+import { useNavigate } from 'react-router-dom'
 
 // ==============================|| MAIN LOGO ||============================== //
 
 const LogoSection = () => {
-  const defaultId = useSelector((state) => state.customization.defaultId)
-  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const userRole = localStorage.getItem('userRole')
   return (
     <ButtonBase
       disableRipple
-      onClick={() => dispatch({ type: MENU_OPEN, id: defaultId })}
+      onClick={() => navigate(`/`)}
       component={Link}
       to={config.defaultPath}>
       <Logo />

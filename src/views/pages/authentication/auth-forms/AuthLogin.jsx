@@ -27,9 +27,8 @@ const AuthLogin = () => {
   const theme = useTheme()
   const dispatch = useDispatch()
   const authState = useSelector((state) => state.auth)
-  const [showPassword, setShowPassword] = useState(false)
-  const [checked, setChecked] = useState(true)
   const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleClickShowPassword = () => setShowPassword(!showPassword)
   const handleMouseDownPassword = (event) => event.preventDefault()
@@ -38,12 +37,12 @@ const AuthLogin = () => {
     const accessToken = localStorage.getItem('accessToken')
     const userRole = localStorage.getItem('userRole')
     if (accessToken && userRole) {
-      if (userRole === 'staff') {
-        navigate('/staff')
-      } else if (userRole === 'professor') {
-        navigate('/professor')
-      } else if (userRole === 'superadmin') {
-        navigate('/superadmin')
+      if (userRole === 'student') {
+        navigate('/student')
+      } else if (userRole === 'librarian') {
+        navigate('/librarian')
+      } else if (userRole === 'admin') {
+        navigate('/admin')
       }
     }
   }, [navigate])
@@ -51,15 +50,15 @@ const AuthLogin = () => {
   const handleSubmit = async (values, { setErrors, setSubmitting }) => {
     dispatch(loginStart())
     try {
-      const data = await loginApi(values.phoneNumber, values.password)
+      const data = await loginApi(values.email, values.password)
       dispatch(loginSuccess(data.user, data.refreshToken))
       const userRole = localStorage.getItem('userRole')
-      if (userRole === 'staff') {
-        navigate('/staff')
-      } else if (userRole === 'professor') {
-        navigate('/professor')
-      } else if (userRole === 'superadmin') {
-        navigate('/superadmin')
+      if (userRole === 'student') {
+        navigate('/student')
+      } else if (userRole === 'librarian') {
+        navigate('/librarian')
+      } else if (userRole === 'admin') {
+        navigate('/admin')
       }
     } catch (error) {
       dispatch(loginFailure(error.message))
@@ -71,16 +70,12 @@ const AuthLogin = () => {
   return (
     <Formik
       initialValues={{
-        phoneNumber: '',
+        email: '',
         password: '',
         submit: null,
       }}
       validationSchema={Yup.object().shape({
-        phoneNumber: Yup.string()
-          .required('Phone number is required')
-          .matches(/^[0-9]+$/, 'Phone number must be only digits')
-          .min(10, 'Phone number must be at least 10 digits')
-          .max(15, 'Phone number can be up to 15 digits'),
+        email: Yup.string().required('Email is required'),
         password: Yup.string().required('Password is required'),
       })}
       onSubmit={handleSubmit}>
@@ -96,22 +91,22 @@ const AuthLogin = () => {
         <form noValidate onSubmit={handleSubmit}>
           <FormControl
             fullWidth
-            error={Boolean(touched.phoneNumber && errors.phoneNumber)}
+            error={Boolean(touched.email && errors.email)}
             sx={{ ...theme.typography.customInput }}>
             <InputLabel htmlFor="outlined-adornment-phone-login">
-              Phone Number
+              Email
             </InputLabel>
             <OutlinedInput
               id="outlined-adornment-phone-login"
               type="text"
-              value={values.phoneNumber}
-              name="phoneNumber"
+              value={values.email}
+              name="email"
               onBlur={handleBlur}
               onChange={handleChange}
-              label="Phone Number"
+              label="Email"
             />
-            {touched.phoneNumber && errors.phoneNumber && (
-              <FormHelperText error>{errors.phoneNumber}</FormHelperText>
+            {touched.email && errors.email && (
+              <FormHelperText error>{errors.email}</FormHelperText>
             )}
           </FormControl>
 
@@ -135,7 +130,7 @@ const AuthLogin = () => {
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}>
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                    {showPassword ? <Visibility color='secondary' /> : <VisibilityOff color='secondary'/>}
                   </Button>
                 </InputAdornment>
               }
@@ -145,30 +140,6 @@ const AuthLogin = () => {
               <FormHelperText error>{errors.password}</FormHelperText>
             )}
           </FormControl>
-
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            spacing={1}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={checked}
-                  onChange={(event) => setChecked(event.target.checked)}
-                  name="checked"
-                  color="primary"
-                />
-              }
-              label="Remember me"
-            />
-            <Typography
-              variant="subtitle1"
-              color="secondary"
-              sx={{ cursor: 'pointer' }}>
-              Forgot Password?
-            </Typography>
-          </Stack>
 
           {errors.submit && (
             <Box sx={{ mt: 3 }}>
@@ -186,7 +157,7 @@ const AuthLogin = () => {
                 type="submit"
                 variant="contained"
                 color="secondary">
-                Sign in
+                Login
               </Button>
             </AnimateButton>
           </Box>

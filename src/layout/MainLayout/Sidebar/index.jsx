@@ -40,8 +40,15 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
             paddingLeft: '16px',
             paddingRight: '16px',
           }}>
-          <MenuList />
-          <MenuCard />
+          <div className="flex flex-col h-full">
+            {/* Apply flex-grow to MenuList to allow it to grow and push MenuCard to the bottom */}
+            <div className="flex-grow">
+              <MenuList />
+            </div>
+            <div>
+              <MenuCard />
+            </div>
+          </div>
           <Stack direction="row" justifyContent="center" sx={{ mb: 2 }}>
             <Chip
               label={import.meta.env.VITE_APP_VERSION}
@@ -55,8 +62,15 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
       </BrowserView>
       <MobileView>
         <Box sx={{ px: 2 }}>
-          <MenuList />
-          <MenuCard />
+        <div className="flex flex-col h-full">
+            {/* Apply flex-grow to MenuList to allow it to grow and push MenuCard to the bottom */}
+            <div className="flex-grow">
+              <MenuList />
+            </div>
+            <div>
+              <MenuCard />
+            </div>
+          </div>
           <Stack direction="row" justifyContent="center" sx={{ mb: 2 }}>
             <Chip
               label={import.meta.env.VITE_APP_VERSION}

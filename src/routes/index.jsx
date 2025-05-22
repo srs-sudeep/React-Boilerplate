@@ -1,13 +1,17 @@
 import useAuthValidation from 'core/Private/Private'
 import { useRoutes } from 'react-router-dom'
-import SuperAdminRoutes from './SuperAdminRoutes'
+import AdminRoutes from './AdminRoutes'
 import commonRoutes from './commonRoutes'
+import LibrarianRoutes from './LibrarianRoutes'
+import StudentRoutes from './StudentRoutes'
 
 export default function Router() {
   useAuthValidation()
   const routes = useRoutes([
-    ...SuperAdminRoutes,
+    ...AdminRoutes,
     ...commonRoutes,
+    ...LibrarianRoutes,
+    ...StudentRoutes,
   ])
 
   return routes

@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types'
-
-// material-ui
+import { useState, useEffect } from 'react'
 import { useTheme } from '@mui/material/styles'
 import Divider from '@mui/material/Divider'
 import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
-
-// project imports
 import NavItem from '../NavItem'
 import NavCollapse from '../NavCollapse'
-
-// ==============================|| SIDEBAR MENU LIST GROUP ||============================== //
 
 const NavGroup = ({ item }) => {
   const theme = useTheme()
